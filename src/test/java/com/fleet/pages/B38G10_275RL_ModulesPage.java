@@ -13,9 +13,11 @@ public class B38G10_275RL_ModulesPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//ul[@class='nav-multilevel main-menu']")
+
+    @FindBy(xpath = "//span[@class='title title-level-1']")
     public List<WebElement> mainModules;
 
-    @FindBy(xpath = "//ul[@class='nav-multilevel main-menu\']")
+
+    @FindBy(xpath = "//span[@class='title title-level-1']" )
     public List<WebElement> driverMainModules;
 }
