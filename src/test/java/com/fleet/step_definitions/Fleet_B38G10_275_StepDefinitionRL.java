@@ -20,44 +20,24 @@ public class Fleet_B38G10_275_StepDefinitionRL extends BasePage {
     //DRIVER
     @Then("driver should see four main modules below")
     public void driverShouldSeeFourMainModulesBelow(List<String> expectedModuleNames) {
+        BrowserUtils.sleep(2);
         System.out.println("expectedModuleNames = " + expectedModuleNames);
-        BrowserUtils.sleep(2);
 
-        List<String> expectedModuleNamesBelow = new ArrayList<>();
-        System.out.println("expectedModuleNamesBelow = " + expectedModuleNamesBelow);
-        //printing empty ArrayList
 
-        expectedModuleNamesBelow.addAll(expectedModuleNames);
-        //added the list of strings
+        List<String> actualModuleNames = new ArrayList<>();
+        //creating empty ArrayList
 
         BrowserUtils.sleep(2);
-        System.out.println("Module Names added in the new ArrayList = " + expectedModuleNamesBelow);
-
-
-        //browserUtils to convert List of WebElements to List of String
-      //  List<String> actualModuleNames = BrowserUtils.getElementsText(driverMainModules);
-
-        //looping through the List of Web elements
-        for (WebElement module : driverMainModules) {
-            String actualModuleName = module.getText();
-
-            System.out.println("module text = " + module.getText());
-
-            System.out.println("actualModuleName : " + actualModuleName);
-
-
-            // Assert.assertTrue(expectedModuleNames.contains(actualModuleNames));
-
-            // Assert.assertEquals(actualModuleNames, expectedModuleNames);
-
-
-            //Asserting through index number
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNames.get(0)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNames.get(1)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNames.get(2)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNames.get(3)));
+        //looping through each web element
+        for (WebElement each : driverMainModules) {
+            actualModuleNames.add(each.getText());
         }
-    }
+
+        System.out.println("actualModuleNames = " + actualModuleNames);
+
+        Assert.assertEquals(expectedModuleNames, actualModuleNames);
+        }
+
 
     //____________________________________________________________________________________________
     //____________________________________________________________________________________________
@@ -65,41 +45,27 @@ public class Fleet_B38G10_275_StepDefinitionRL extends BasePage {
     //STORE MANAGER or SALES MANAGER
     @Then("user should see eight module names below")
     public void userShouldSeeEightModuleNamesBelow(List<String> expectedModuleNames) {
+        BrowserUtils.sleep(2);
         System.out.println("expectedModuleNames = " + expectedModuleNames);
-        BrowserUtils.sleep(2);
 
-        List<String> expectedModuleNamesBelow = new ArrayList<>();
-        System.out.println("expectedModuleNamesBelow = " + expectedModuleNamesBelow);
-        //printing empty ArrayList
 
-        expectedModuleNamesBelow.addAll(expectedModuleNames);
-        //added the list of strings
+        List<String> actualModuleNames = new ArrayList<>();
+                //creating empty ArrayList
 
         BrowserUtils.sleep(2);
-        System.out.println("Module Names added in the new ArrayList = " + expectedModuleNamesBelow);
+        //looping through each web element
+        for (WebElement each : mainModules) {
+            actualModuleNames.add(each.getText());
+        }
 
+        System.out.println("actualModuleNames = " + actualModuleNames);
 
-        //looping through the List of Web elements
-        for (WebElement module : mainModules) {
-            String actualModuleName = module.getText();
+        Assert.assertEquals(expectedModuleNames, actualModuleNames);
 
-            System.out.println("module text = " + module.getText());
-
-            System.out.println("actualModuleName : " + actualModuleName);
-
-
-            //Assertion using index number - passing
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(0)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(1)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(2)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(3)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(4)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(5)));
-            Assert.assertTrue(actualModuleName.contains(expectedModuleNamesBelow.get(6)));
         }
     }
 
 
-}
+
 
 
